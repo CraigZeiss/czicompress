@@ -40,7 +40,7 @@ jobs:
           }
           - {
             name: ubuntu-package-off,
-            os: ubuntu-20.04,  # we want to use an older version in order to increase likelihood that binaries work on other distros
+            os: ubuntu-22.04,  # we want to use an older version in order to increase likelihood that binaries work on other distros
             platform: x64-linux,
             package: OFF,
             path-cache: "/usr/local/share/vcpkg/installed",
