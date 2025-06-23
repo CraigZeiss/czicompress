@@ -159,8 +159,13 @@ jobs:
             -DCMAKE_EXE_LINKER_FLAGS="-static"
           cmake --build . --config Release
 
+      - name: Copy license files
+        run: |
+          cp $GITHUB_WORKSPACE/THIRD_PARTY_LICENSES_ARTIFACT_DISTRIBUTION.txt czicompress/build/app/
+          cp $GITHUB_WORKSPACE/czicompress/build/app/THIRD_PARTY_LICENSES.txt czicompress/build/app/
+
       - name: Upload Alpine binary
         uses: actions/upload-artifact@v4
         with:
           name: czicompress-alpine-x64-Release
-          path: czicompress/build/app/czicompress
+          path: czicompress/build/app
