@@ -161,8 +161,8 @@ jobs:
 
       - name: Copy license files
         run: |
-          cp $GITHUB_WORKSPACE/THIRD_PARTY_LICENSES_ARTIFACT_DISTRIBUTION.txt czicompress/build/app/
-          cp $GITHUB_WORKSPACE/czicompress/build/app/THIRD_PARTY_LICENSES.txt czicompress/build/app/
+          cp czicompress/THIRD_PARTY_LICENSES_ARTIFACT_DISTRIBUTION.txt czicompress/build/app/
+          cp czicompress/build/app/THIRD_PARTY_LICENSES.txt czicompress/build/app/
 
       - name: Upload Alpine binary
         uses: actions/upload-artifact@v4
