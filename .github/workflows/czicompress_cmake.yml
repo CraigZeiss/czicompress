@@ -159,13 +159,8 @@ jobs:
             -DCMAKE_EXE_LINKER_FLAGS="-static"
           cmake --build . --config Release
 
-      - name: Package Alpine binary
-        run: |
-          cd czicompress/build/app
-          tar czf czicompress-alpine-x64-Release.tar.gz czicompress
-
-      - name: Upload Alpine artifact
+      - name: Upload Alpine binary
         uses: actions/upload-artifact@v4
         with:
           name: czicompress-alpine-x64-Release
-          path: czicompress/build/app/czicompress-alpine-x64-Release.tar.gz
+          path: czicompress/build/app/czicompress
