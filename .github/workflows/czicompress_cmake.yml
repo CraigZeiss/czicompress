@@ -147,7 +147,7 @@ jobs:
       - name: Install Alpine build deps
         run: |
           apk update
-          apk add --no-cache build-base cmake zstd-dev
+          apk add --no-cache git build-base cmake zstd-dev
 
       - name: Configure & build czicompress
         working-directory: ${{ github.workspace }}/czicompress
