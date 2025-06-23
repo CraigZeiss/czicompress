@@ -39,7 +39,7 @@ jobs:
             os-id: "windows",
           }
           - {
-            name: ubuntu-package-off,
+            name: ubuntu-package-on,
             os: ubuntu-22.04,  # we want to use an older version in order to increase likelihood that binaries work on other distros
             platform: x64-linux,
             package: OFF,
@@ -159,12 +159,15 @@ jobs:
             -DCMAKE_EXE_LINKER_FLAGS="-static"
           cmake --build . --config Release
 
-      - name: Copy license files
+      - name: Stage Alpine artifact
         run: |
-          cp czicompress/THIRD_PARTY_LICENSES_ARTIFACT_DISTRIBUTION.txt czicompress/build/app/
+          mkdir -p alpine-artifact
+          cp czicompress/build/app/czicompress alpine-artifact/
+          cp czicompress/THIRD_PARTY_LICENSES_ARTIFACT_DISTRIBUTION.txt alpine-artifact/
+          cp czicompress/build/app/THIRD_PARTY_LICENSES.txt alpine-artifact/
 
       - name: Upload Alpine binary
         uses: actions/upload-artifact@v4
         with:
           name: czicompress-alpine-x64-Release
-          path: czicompress/build/app
+          path: alpine-artifact/
