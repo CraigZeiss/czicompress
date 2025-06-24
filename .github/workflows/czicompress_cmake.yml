@@ -53,7 +53,7 @@ jobs:
             config:
               {
                 name: ubuntu-package-off,
-                os: ubuntu-20.04,
+                os: ubuntu-22.04,
                 platform: x64-linux,
                 package: OFF,
                 path-cache: "/usr/local/share/vcpkg/installed",
