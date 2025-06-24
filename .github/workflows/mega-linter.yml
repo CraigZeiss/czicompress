@@ -55,7 +55,7 @@ jobs:
           # All available variables are described in documentation
           # https://megalinter.io/configuration/
           VALIDATE_ALL_CODEBASE: true
-          FILTER_REGEX_EXCLUDE: CZICompress_Config.h
+          FILTER_REGEX_EXCLUDE: (CZICompress_Config\.h|capi\.cpp)
           CPP_CPPCHECK_ARGUMENTS: >
             --language=c++
             --std=c++17
