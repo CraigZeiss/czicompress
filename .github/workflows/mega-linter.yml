@@ -25,6 +25,9 @@ jobs:
       - name: Checkout Code
         uses: actions/checkout@v4
 
+      # The linters run into trouble because this include file is missing in the repository, it is
+      # instead created by the CMake build process. For sake of simplicity, we generate this file
+      # here, so that the linters can run without any issues.
       - name: Generate CZICompress_Config.h
         run: |
           mkdir -p .megalinter-config/include
