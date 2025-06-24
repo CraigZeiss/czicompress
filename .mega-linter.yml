@@ -14,7 +14,7 @@ DISABLE_ERRORS_LINTERS:
   - MARKDOWN_MARKDOWN_LINK_CHECK  # Make non-blocking due to network timeouts etc.
 DISABLE_LINTERS:
   - REPOSITORY_TRIVY  # this linter seems currently broken, so we disable it here for now
-C_CPPLINT_ARGUMENTS: --verbose=2
+  - C_CPPCHECK
 CPP_CPPLINT_ARGUMENTS: --verbose=2
 SHOW_ELAPSED_TIME: true
 FILEIO_REPORTER: false
@@ -23,3 +23,4 @@ TEXT_REPORTER: true
 EMAIL_REPORTER: false
 VALIDATE_ALL_CODEBASE: true
 YAML_V8R_FILTER_REGEX_EXCLUDE: (.jsonlintrc.yml|advanced-issue-labeler.yml)
+CPP_CPPCHECK_ARGUMENTS: --language=c++ --std=c++17
