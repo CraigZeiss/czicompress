@@ -25,6 +25,28 @@ jobs:
       - name: Checkout Code
         uses: actions/checkout@v4
 
+      - name: Generate CZICompress_Config.h
+        run: |
+          mkdir -p .megalinter-config/include
+          cat <<'EOF' > .megalinter-config/include/CZICompress_Config.h
+#pragma once
+
+#define CZICOMPRESS_UNIX_ENVIRONMENT 1 
+#define CZICOMPRESS_WIN32_ENVIRONMENT 0 
+
+#define CZICOMPRESS_VERSION_MAJOR u8"0" 
+#define CZICOMPRESS_VERSION_MINOR u8"0" 
+#define CZICOMPRESS_VERSION_PATCH u8"0" 
+#define CZICOMPRESS_VERSION_TWEAK u8"0" 
+#define CZICOMPRESS_VERSION_PATCH_STR u8"0" 
+
+#ifdef NDEBUG
+#define CZICOMPRESS_VERSION_TWEAK_STR u8"0" 
+#else
+#define CZICOMPRESS_VERSION_TWEAK_STR u8"0-DEBUG" 
+#endif
+EOF
+
       # MegaLinter
       - name: MegaLinter
         id: ml
@@ -35,6 +57,10 @@ jobs:
           # All available variables are described in documentation
           # https://megalinter.io/configuration/
           VALIDATE_ALL_CODEBASE: true
+          CPP_CPPCHECK_ARGUMENTS: >
+            --language=c++
+            --std=c++17
+            -I.megalinter-config/include
 
       # Upload MegaLinter artifacts
       - name: Archive production artifacts
