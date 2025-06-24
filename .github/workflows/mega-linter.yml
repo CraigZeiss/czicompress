@@ -29,23 +29,23 @@ jobs:
         run: |
           mkdir -p .megalinter-config/include
           cat <<'EOF' > .megalinter-config/include/CZICompress_Config.h
-#pragma once
+          #pragma once
 
-#define CZICOMPRESS_UNIX_ENVIRONMENT 1 
-#define CZICOMPRESS_WIN32_ENVIRONMENT 0 
+          #define CZICOMPRESS_UNIX_ENVIRONMENT 1 
+          #define CZICOMPRESS_WIN32_ENVIRONMENT 0 
 
-#define CZICOMPRESS_VERSION_MAJOR u8"0" 
-#define CZICOMPRESS_VERSION_MINOR u8"0" 
-#define CZICOMPRESS_VERSION_PATCH u8"0" 
-#define CZICOMPRESS_VERSION_TWEAK u8"0" 
-#define CZICOMPRESS_VERSION_PATCH_STR u8"0" 
+          #define CZICOMPRESS_VERSION_MAJOR u8"0" 
+          #define CZICOMPRESS_VERSION_MINOR u8"0" 
+          #define CZICOMPRESS_VERSION_PATCH u8"0" 
+          #define CZICOMPRESS_VERSION_TWEAK u8"0" 
+          #define CZICOMPRESS_VERSION_PATCH_STR u8"0" 
 
-#ifdef NDEBUG
-#define CZICOMPRESS_VERSION_TWEAK_STR u8"0" 
-#else
-#define CZICOMPRESS_VERSION_TWEAK_STR u8"0-DEBUG" 
-#endif
-EOF
+          #ifdef NDEBUG
+          #define CZICOMPRESS_VERSION_TWEAK_STR u8"0" 
+          #else
+          #define CZICOMPRESS_VERSION_TWEAK_STR u8"0-DEBUG" 
+          #endif
+          EOF
 
       # MegaLinter
       - name: MegaLinter
