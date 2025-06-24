@@ -31,19 +31,19 @@ jobs:
           cat <<'EOF' > .megalinter-config/include/CZICompress_Config.h
           #pragma once
 
-          #define CZICOMPRESS_UNIX_ENVIRONMENT 1 
-          #define CZICOMPRESS_WIN32_ENVIRONMENT 0 
+          #define CZICOMPRESS_UNIX_ENVIRONMENT 1
+          #define CZICOMPRESS_WIN32_ENVIRONMENT 0
 
-          #define CZICOMPRESS_VERSION_MAJOR u8"0" 
-          #define CZICOMPRESS_VERSION_MINOR u8"0" 
-          #define CZICOMPRESS_VERSION_PATCH u8"0" 
-          #define CZICOMPRESS_VERSION_TWEAK u8"0" 
-          #define CZICOMPRESS_VERSION_PATCH_STR u8"0" 
+          #define CZICOMPRESS_VERSION_MAJOR u8"0"
+          #define CZICOMPRESS_VERSION_MINOR u8"0"
+          #define CZICOMPRESS_VERSION_PATCH u8"0"
+          #define CZICOMPRESS_VERSION_TWEAK u8"0"
+          #define CZICOMPRESS_VERSION_PATCH_STR u8"0"
 
           #ifdef NDEBUG
-          #define CZICOMPRESS_VERSION_TWEAK_STR u8"0" 
+          #define CZICOMPRESS_VERSION_TWEAK_STR u8"0"
           #else
-          #define CZICOMPRESS_VERSION_TWEAK_STR u8"0-DEBUG" 
+          #define CZICOMPRESS_VERSION_TWEAK_STR u8"0-DEBUG"
           #endif
           EOF
 
@@ -57,6 +57,7 @@ jobs:
           # All available variables are described in documentation
           # https://megalinter.io/configuration/
           VALIDATE_ALL_CODEBASE: true
+          FILTER_REGEX_EXCLUDE: CZICompress_Config.h
           CPP_CPPCHECK_ARGUMENTS: >
             --language=c++
             --std=c++17
