@@ -136,7 +136,7 @@ jobs:
   build-alpine:
     name: Build (Alpine Linux)
     runs-on: ubuntu-latest
-    # run inside an Alpine container so we get musl + static by default
+    # run inside an Alpine container so we get musl + static by default. Use a parallel build as this has to be done in a new container.
     container:
       image: alpine:3.18
 
