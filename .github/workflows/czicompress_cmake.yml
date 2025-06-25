@@ -39,7 +39,7 @@ jobs:
             os-id: "windows",
           }
           - {
-            name: ubuntu-package-on,
+            name: ubuntu-package-off,
             os: ubuntu-22.04,  # we want to use an older version in order to increase likelihood that binaries work on other distros
             platform: x64-linux,
             package: OFF,
